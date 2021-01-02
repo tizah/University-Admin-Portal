@@ -1,0 +1,1 @@
+export const Courses = [{label:"Biology", value:"biology"}, {label:"Philosophy", value:"philosophy"}, {label: "Machine Learning", value: "machine_learning"},{label:"Data Science", value:"data_science"}]
