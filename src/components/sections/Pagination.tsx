@@ -22,10 +22,8 @@ const PaginatedContent: FC<PageProps> = ({ studentsArray }) => {
   const [activePage, setCurrentPage] = useState(1);
   const [showViewCoursesModal, setShowViewCoursesModal] = useState(false);
   const [showAddCoursesModal, setShowAddCoursesModal] = useState(false);
-  const [courses, setCourses] = useState<[]>([]);
   const [studentRecord, setStudentRecord] = useState<Student>();
   const [studentCourseRecord, setStudentCourseRecord] = useState<Student>();
-  const [studentIdClicked, setStudentId] = useState("");
 
   const [updatedStudentRecord, setUpdatedStudentRecord] = useState<Student>();
   const [loading, setLoading] = useState<boolean>(false);
@@ -42,7 +40,7 @@ const PaginatedContent: FC<PageProps> = ({ studentsArray }) => {
   const dispatch = useDispatch();
 
   const handleSaveCourses = async (studentId: string, coursesList: []) => {
-    setCourses(coursesList);
+    //setCourses(coursesList);
 
     //TODO: Fix the error i get from the code bellow
     const coureseNumber: [] =
@@ -89,7 +87,6 @@ const PaginatedContent: FC<PageProps> = ({ studentsArray }) => {
     student: Student
   ) => {
     e.preventDefault();
-    setStudentId(student.studentId);
     setShowAddCoursesModal(true);
     setStudentCourseRecord(student);
   };
@@ -101,11 +98,7 @@ const PaginatedContent: FC<PageProps> = ({ studentsArray }) => {
 
   const renderTodos = currentStudents.map((student, index) => {
     return (
-      <div
-        className="card"
-        key={index}
-        onClick={() => setStudentId(student.studentId)}
-      >
+      <div className="card" key={index} onClick={() => {}}>
         <div className="card-content">
           <div className="media">
             <div className="media-left">
