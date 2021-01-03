@@ -1,5 +1,5 @@
 
-import { StudentAction, StudentState, Student, GET_STUDENT_BY_ID, GET_STUDENTS, SeedStudentAction, SeedStudentState, SEED_STUDENT, SEED_ERROR, SAVE_STUDENTCOURSES, DELETE_COURSE  } from "../types"
+import { StudentAction, StudentState, GET_STUDENT_BY_ID, GET_STUDENTS, SAVE_STUDENTCOURSES, DELETE_COURSE  } from "../types"
 
 const initiatlState: StudentState = {
     students: [],

@@ -11,44 +11,48 @@ interface ModalProps {
   children: ReactNode;
 }
 
-const AddCourseModal: FC<ModalProps> = React.memo(
-  ({ onClose, onSave, title, onClick, loading, children }) => {
-    const targetEl = document.getElementById("modal-root");
+const AddCourseModal: FC<ModalProps> = ({
+  onClose,
+  onSave,
+  title,
+  loading,
+  children,
+}) => {
+  const targetEl = document.getElementById("modal-root");
 
-    const modal = useMemo(
-      () => (
-        <div className="modal">
-          <div className="modal-background" onClick={onClose}></div>
-          <div className="modal-card" style={{ height: "70%", width: "70%" }}>
-            <header className="modal-card-head">
-              <p className="modal-card-title">{title}</p>
-              <button
-                className="delete"
-                aria-label="close"
-                onClick={onClose}
-              ></button>
-            </header>
-            <section className="modal-card-body">{children}</section>
-            <footer className="modal-card-foot">
-              <button className="button" onClick={onClose}>
-                Cancel
-              </button>
+  const modal = useMemo(
+    () => (
+      <div className="modal">
+        <div className="modal-background" onClick={onClose}></div>
+        <div className="modal-card" style={{ height: "70%", width: "70%" }}>
+          <header className="modal-card-head">
+            <p className="modal-card-title">{title}</p>
+            <button
+              className="delete"
+              aria-label="close"
+              onClick={onClose}
+            ></button>
+          </header>
+          <section className="modal-card-body">{children}</section>
+          <footer className="modal-card-foot">
+            <button className="button" onClick={onClose}>
+              Cancel
+            </button>
 
-              <Button
-                onClick={onSave}
-                text={loading ? "Saving Courses" : "Save"}
-                className={"is-primary"}
-                disabled={loading}
-              />
-            </footer>
-          </div>
+            <Button
+              onClick={onSave}
+              text={loading ? "Saving Courses" : "Save"}
+              className={"is-primary"}
+              disabled={loading}
+            />
+          </footer>
         </div>
-      ),
-      [children]
-    );
+      </div>
+    ),
+    [onClose, onSave, title, loading]
+  );
 
-    return targetEl ? ReactDOM.createPortal(modal, targetEl) : modal;
-  }
-);
+  return targetEl ? ReactDOM.createPortal(modal, targetEl) : modal;
+};
 
 export default AddCourseModal;

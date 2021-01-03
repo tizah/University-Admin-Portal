@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useState, MouseEvent } from "react";
+import React, { FC, useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import StudentJsonData from "../../STUDENT_MOCK_DATA.json";
 
@@ -16,7 +16,7 @@ const Dashboard: FC = () => {
     (state: RootState) => state.auth
   );
 
-  const { error, students } = useSelector((state: RootState) => state.student);
+  const { students } = useSelector((state: RootState) => state.student);
 
   const dispatch = useDispatch();
 
@@ -44,9 +44,7 @@ const Dashboard: FC = () => {
         {(students as any).length > 0 ? (
           <article className="message is-link">
             <div className="message-header">
-              <p>
-                <h3 className="is-size-1">Welcome {user?.firstName}</h3>
-              </p>
+              <h3 className="is-size-1">Welcome {user?.firstName}</h3>
             </div>
             <div className="message-body">Here are the list of Students</div>
           </article>

@@ -1,6 +1,6 @@
 import { ThunkAction } from "redux-thunk";
 
-import { StudentAction, GET_STUDENT_BY_ID, GET_STUDENTS, Student,SeedStudentAction, SeedStudentState, SEED_STUDENT, SEED_ERROR,  SAVE_STUDENTCOURSES} from "../types";
+import { StudentAction, GET_STUDENT_BY_ID, GET_STUDENTS, Student,SeedStudentAction, SEED_STUDENT,  SAVE_STUDENTCOURSES} from "../types";
 
 import { RootState } from ".."
 import firebase from "../../firebase/config";
@@ -86,9 +86,6 @@ export const saveStudentCourses = (student: Student): ThunkAction<void, RootStat
             const result = studentRecord.docs[0];
             const studentResult = result.data() as Student;
 
-            const previousCourses = studentResult.courses;
-
-            const newCourses = [...student.courses, ...previousCourses];
             
             dispatch({
                 type: SAVE_STUDENTCOURSES,

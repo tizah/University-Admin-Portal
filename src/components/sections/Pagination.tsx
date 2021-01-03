@@ -17,17 +17,12 @@ interface PageProps {
   studentsArray: Student[];
 }
 
-interface SaveCoursesProps {
-  studentId: string;
-  courses: [];
-}
-
 const PaginatedContent: FC<PageProps> = ({ studentsArray }) => {
   const studetListPerPage = 9;
   const [activePage, setCurrentPage] = useState(1);
   const [showViewCoursesModal, setShowViewCoursesModal] = useState(false);
   const [showAddCoursesModal, setShowAddCoursesModal] = useState(false);
-  const [courses, setCourses] = useState([]);
+  const [courses, setCourses] = useState<[]>([]);
   const [studentRecord, setStudentRecord] = useState<Student>();
   const [studentCourseRecord, setStudentCourseRecord] = useState<Student>();
   const [studentIdClicked, setStudentId] = useState("");
@@ -47,17 +42,25 @@ const PaginatedContent: FC<PageProps> = ({ studentsArray }) => {
   const dispatch = useDispatch();
 
   const handleSaveCourses = async (studentId: string, coursesList: []) => {
-    setCourses(() => coursesList);
-    const coureseNumber = studentRecord?.courses;
+    setCourses(coursesList);
+
+    const courseArray: any[] = [];
+
+    //TODO: Fix the error i get from the code bellow
+    const coureseNumber: [] =
+      studentRecord?.courses === undefined ? [] : studentRecord?.courses;
+
+    console.log({ coureseNumber });
+
     const student: Student = {
-      studentId: studentIdClicked,
-      id: studentId,
+      studentId: studentId,
+      id: "",
       firstName: "",
       lastName: "",
       email: "",
       imageUrl: "",
       gender: "",
-      courses: [...coursesList, ...coureseNumber!],
+      courses: [...coursesList, ...coureseNumber],
     };
     setUpdatedStudentRecord(student);
   };
@@ -90,9 +93,11 @@ const PaginatedContent: FC<PageProps> = ({ studentsArray }) => {
     student: Student
   ) => {
     e.preventDefault();
+    setStudentId(student.studentId);
     setShowAddCoursesModal(true);
     setStudentCourseRecord(student);
   };
+
   const handleSetLoading = (e: MouseEvent<HTMLDivElement>) => {
     e.preventDefault();
     setLoading(true);
@@ -126,7 +131,8 @@ const PaginatedContent: FC<PageProps> = ({ studentsArray }) => {
               title="View Courses"
               onClose={() => setShowViewCoursesModal(false)}
             >
-              Courses offered by student
+              Courses offered by {studentRecord?.firstName}{" "}
+              {studentRecord?.lastName}
               <div className="content">
                 <ol type="1">
                   <CourseList student={studentRecord} />
@@ -158,7 +164,6 @@ const PaginatedContent: FC<PageProps> = ({ studentsArray }) => {
               onClick={(e: MouseEvent<HTMLDivElement>) => handleSetLoading(e)}
               loading={loading}
             >
-              {console.log({ loading })}
               <MultiSelect
                 onChange={handleSaveCourses}
                 student={studentCourseRecord}
