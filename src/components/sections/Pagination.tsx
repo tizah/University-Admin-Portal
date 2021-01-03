@@ -110,7 +110,7 @@ const PaginatedContent: FC<PageProps> = ({ studentsArray }) => {
           <div className="media">
             <div className="media-left">
               <figure className="image is-48x48">
-                <img src={student.imageUrl} alt="Placeholder image" />
+                <img src={student.imageUrl} alt="userPics" />
               </figure>
             </div>
             <div className="media-content">
@@ -137,14 +137,14 @@ const PaginatedContent: FC<PageProps> = ({ studentsArray }) => {
             </CoursesModal>
           )}
           <a
-            href=""
+            href="/"
             className="card-footer-item"
             onClick={(e) => handleShowModal(e, student)}
           >
             View Courses
           </a>
           <a
-            href=""
+            href="/"
             className="card-footer-item"
             onClick={(e) => handleShowAddStudentCourseModal(e, student)}
           >

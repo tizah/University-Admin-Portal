@@ -43,7 +43,7 @@ const Example: React.FC<{
     });
     setStudentId(student?.studentId);
     setSelectedOptions(result);
-  }, [options, student?.studentId]);
+  }, [options, student?.studentId, student?.courses]);
 
   const changeTagHandler = () => {
     let randomElement = tagList[Math.floor(Math.random() * tagList.length)];
