@@ -1,7 +1,6 @@
 import { FC, useState, useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 
-import { RootState } from "../../store";
 import { Student } from "../../store/types";
 import {
   saveStudentCourses,

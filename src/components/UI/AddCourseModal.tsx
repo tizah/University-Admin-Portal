@@ -49,7 +49,7 @@ const AddCourseModal: FC<ModalProps> = ({
         </div>
       </div>
     ),
-    [onClose, onSave, title, loading]
+    [onClose, onSave, title, loading, children]
   );
 
   return targetEl ? ReactDOM.createPortal(modal, targetEl) : modal;

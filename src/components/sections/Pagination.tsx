@@ -44,13 +44,9 @@ const PaginatedContent: FC<PageProps> = ({ studentsArray }) => {
   const handleSaveCourses = async (studentId: string, coursesList: []) => {
     setCourses(coursesList);
 
-    const courseArray: any[] = [];
-
     //TODO: Fix the error i get from the code bellow
     const coureseNumber: [] =
       studentRecord?.courses === undefined ? [] : studentRecord?.courses;
-
-    console.log({ coureseNumber });
 
     const student: Student = {
       studentId: studentId,
@@ -141,14 +137,14 @@ const PaginatedContent: FC<PageProps> = ({ studentsArray }) => {
             </CoursesModal>
           )}
           <a
-            href="#"
+            href=""
             className="card-footer-item"
             onClick={(e) => handleShowModal(e, student)}
           >
             View Courses
           </a>
           <a
-            href="#"
+            href=""
             className="card-footer-item"
             onClick={(e) => handleShowAddStudentCourseModal(e, student)}
           >

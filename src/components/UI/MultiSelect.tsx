@@ -1,8 +1,7 @@
-import React, { useState, useEffect, useCallback, MouseEvent } from "react";
+import React, { useState, useEffect } from "react";
 import MultiSelect from "react-multi-select-component";
 import { Student } from "../../store/types";
 import { Courses } from "../../utils/coursesList";
-import CourseList from "../sections/CourseList";
 import { CapitalizeFirstLetter, FilterCourses } from "../../utils/util";
 
 interface CourseListProps {
