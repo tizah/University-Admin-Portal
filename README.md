@@ -6,7 +6,7 @@ As part of the Fullstack Developer Challenge, here is a guideline on how to run 
 
 ## Folder Structure
 
-├── src `v`  
+├── src `==>`  
  ├── components (contains the react components)  
  ├── firebase/config.ts  
  ├── store (contains all redux actions, reducers, types, and redux-thunk)  
