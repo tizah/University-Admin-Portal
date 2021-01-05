@@ -6,13 +6,13 @@ As part of the Fullstack Developer Challenge, here is a guideline on how to run 
 
 ## Folder Structure
 
-├── src  
+├── src `v`  
  ├── components (contains the react components)  
  ├── firebase/config.ts  
  ├── store (contains all redux actions, reducers, types, and redux-thunk)  
  ├── tests  
- ├── utils
-└── STUDENT_MOCK_DATA.json (contains the list of student that will be used and seeded into the database).
+ ├── utils  
+ ├── STUDENT_MOCK_DATA.json (contains the list of student that will be used and seeded into the database).
 
 ## How to run the project
 
