@@ -73,7 +73,20 @@ export const setLoading = (value: boolean): ThunkAction<void, RootState, null, A
 export const signin = (data: SignInData, onError: () => void): ThunkAction<void, RootState, null, AuthAction> => {
     return async dispatch => {
         try {
-            await firebase.auth().signInWithEmailAndPassword(data.email, data.password);
+            const res = await firebase.auth().signInWithEmailAndPassword(data.email, data.password);
+            
+            if (res.user) {
+                dispatch({
+                    type: SET_USER,
+                    payload: {
+                        createdAt: "",
+                        email: res.user.email!,
+                        firstName: "",
+                        id: "",
+                        role: "Admin"
+                    },
+                })
+            }
         } catch (err) {
             console.log(err);
             onError();
