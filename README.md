@@ -1,5 +1,7 @@
 [![Netlify Status](https://api.netlify.com/api/v1/badges/1b230088-91cf-4706-99fe-c9a9b8912116/deploy-status)](https://app.netlify.com/sites/mainteny-university/deploys)
 
+[Loom Video](https://www.loom.com/share/79e6895ba8d34294af04c3aef3b4310e)
+
 # Welcome to [Mainteny University](https://mainteny-university.netlify.app/) Admin Portal
 
 As part of the Fullstack Developer Challenge, here is a guideline on how to run the project
