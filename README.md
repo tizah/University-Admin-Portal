@@ -6,10 +6,12 @@
 
 As part of the Fullstack Developer Challenge, here is a guideline on how to run the project
 
-## Running the application using docker-compose
+## How to run the application using docker-compose
 
 To run the application using `docker-compose` insert the following command into your terminal `docker-compose up -d --build` and hit enter.
 After Successfully building the image, the app should be access at `http://localhost:3001/`
+
+You can then signup as a new Admin user and seed students.
 
 ## Folder Structure
 
@@ -21,7 +23,7 @@ After Successfully building the image, the app should be access at `http://local
  ├── utils  
  ├── STUDENT_MOCK_DATA.json (contains the list of student that will be used and seeded into the database).
 
-## How to run the project
+## How to run the project locally
 
 In the project directory, you can run:
 
@@ -42,4 +44,5 @@ this will run all unit test that test the redux store.
 
 ## View Application
 
-you can view the application on [Netlify](https://www.netlify.com/).
+you can view the application on [Application URL](https://mainteny-university.netlify.app/).
+Application is hosted on [Netlify](https://www.netlify.com/).
