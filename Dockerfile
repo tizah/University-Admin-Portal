@@ -1,5 +1,5 @@
 # pull official base image
-FROM node:13.12.0-alpine
+FROM node:12
 
 # set working directory
 WORKDIR /app
@@ -9,9 +9,11 @@ ENV PATH /app/node_modules/.bin:$PATH
 
 # install app dependencies
 COPY package.json ./
-COPY package-lock.json ./
-RUN yarn install 
-RUN yarn install react-scripts
+COPY yarn.lock ./
+COPY .env ./
+COPY tsconfig.json ./
+RUN yarn 
+RUN yarn add react-scripts
 
 # add app
 COPY . ./

@@ -6,6 +6,11 @@
 
 As part of the Fullstack Developer Challenge, here is a guideline on how to run the project
 
+## Running the application using docker-compose
+
+To run the application using `docker-compose` insert the following command into your terminal `docker-compose up -d --build` and hit enter.
+After Successfully building the image, the app should be access at `http://localhost:3001/`
+
 ## Folder Structure
 
 ├── src `==>`  
